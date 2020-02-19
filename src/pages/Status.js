@@ -12,7 +12,9 @@ function Status() {
   ]);
   return (
     <div>
-      {todos.map(item => (
+      <div className="flex flex-wrap"> 
+      <div className="w-1/3">Todo's</div>
+      <div className="w-1/3">System</div>{todos.map(item => (
         <div
           key={item.text}
           className="w-full flex justify-between items-center bg-gray-300 p-2 mt-2"
@@ -28,6 +30,25 @@ function Status() {
           </div>
         </div>
       ))}
+      <div className="w-1/2">Jobs</div>{todos.map(item => (
+        <div
+          key={item.text}
+          className="w-full flex justify-between items-center bg-gray-300 p-2 mt-2"
+        >
+          <span>{item.text}</span>
+          <div>
+            <div
+              className={
+                "h-4 w-4 rounded-full " +
+                (item.status === "alert" ? "bg-red-400" : "bg-green-400")
+              }
+            ></div>
+          </div>
+        </div>
+      ))}
+      <div className="w-1/2">Something great!</div>
+      </div>
+      
     </div>
   );
 }

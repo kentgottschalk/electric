@@ -4,11 +4,12 @@ import Projects from "./pages/Projects";
 import Status from "./pages/Status";
 import Support from "./pages/Support";
 import Todo from "./pages/Todo";
+import Submenu from "./components/Submenu";
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
 const menu_items = [
-  { id: 1, text: "Status", icon: "Status" },
+  { id: 1, text: "Overblik", icon: "Status" },
   { id: 2, text: "Todo", icon: "Todo" },
   { id: 3, text: "Support", icon: "Support" },
   { id: 4, text: "Projects", icon: "Projects" },
@@ -16,7 +17,7 @@ const menu_items = [
 ];
 
 function App() {
-  const [menu, setMenu] = useState(2);
+  const [menu, setMenu] = useState(1);
   const [submenu, setSubmenu] = useState(false);
 
   function clickmenu(id) {
@@ -37,7 +38,7 @@ function App() {
   return (
     <div className="flex">
       <div className="h-screen border-r">
-      <button onClick={click}>Open Window</button>
+      
         {menu_items.map((item, i) => (
           <div
             className={
@@ -52,9 +53,10 @@ function App() {
             {item.text}
           </div>
         ))}
+      <button onClick={click}>Open Window</button>
       </div>
       {submenu === true && (
-        <div className="w-40 h-screen border-r p-3">Submenu</div>
+        <div className="w-40 h-screen border-r p-3"><Submenu /></div>
       )}
       <div className="flex-1 h-screen bg-gray-100 p-3">
         <div>

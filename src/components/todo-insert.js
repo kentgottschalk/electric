@@ -4,24 +4,24 @@ import * as Database from "../db/Database";
 function TodoInsert() {
   const [name, setName] = useState();
   const [color, setColor] = useState();
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState('');
 
   const subs = [];
 
   useEffect(() => {
     async function addHero(event) {
-      //const { name, color } = this.state;
       const db = await Database.get();
       db.heroes.insert({ name, color });
       setName("");
       setColor("");
     }
-    addHero();
+    if(query !== '') {addHero();}
+    
   }, [query]);
 
   return (
     <div id="insert-box" className="box">
-      <h3 className="font-semibold"> Add Hero </h3>{" "}
+      <h3 className="font-semibold"> Add Todo </h3>{" "}
       <form
         onSubmit={event => {
           event.preventDefault();
