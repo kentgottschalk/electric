@@ -4,18 +4,8 @@ import Projects from "./pages/Projects";
 import Status from "./pages/Status";
 import Support from "./pages/Support";
 import Todo from "./pages/Todo";
-import PouchDB from "pouchdb";
 const { remote } = require('electron')
 const { BrowserWindow } = remote
-
-const remoteDatabase = new PouchDB("http://localhost:5984/todos");
-const db = new PouchDB("todolist");
-PouchDB.sync(db, remoteDatabase, {
-  live: true,
-  heartbeat: false,
-  timeout: false,
-  retry: true
-});
 
 const menu_items = [
   { id: 1, text: "Status", icon: "Status" },
@@ -26,7 +16,7 @@ const menu_items = [
 ];
 
 function App() {
-  const [menu, setMenu] = useState(4);
+  const [menu, setMenu] = useState(2);
   const [submenu, setSubmenu] = useState(false);
 
   function clickmenu(id) {
@@ -39,8 +29,10 @@ function App() {
   }
 
   function click(){
-    const win = new BrowserWindow()
+    new BrowserWindow()
   }
+
+   
 
   return (
     <div className="flex">
