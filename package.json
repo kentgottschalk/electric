@@ -64,7 +64,7 @@
     "@rescripts/rescript-env": "^0.0.5",
     "autoprefixer": "^9.7.4",
     "concurrently": "^4.1.0",
-    "electron": "^4.0.6",
+    "electron": "^9.4.0",
     "electron-builder": "^20.38.5",
     "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.2.0",
